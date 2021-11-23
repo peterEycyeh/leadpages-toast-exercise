@@ -49,6 +49,9 @@ function App() {
     likedFormData.data.liked = true;
     const response = await saveFormSubmission(likedFormData);
     
+    if (response.status === 202) {
+      setFormSubmissions([...formSubmissions, likedFormData]);
+    }
     console.log(response)
   }
 
