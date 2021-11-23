@@ -6,7 +6,8 @@ import Content from './Content';
 import Toast from './components/Toast';
 
 import {
-  onMessage
+  onMessage,
+  saveFormSubmission
 } from './service/mockServer';
 
 function App() {
@@ -26,8 +27,12 @@ function App() {
     setIsToastOpen(false);
   }
 
-  const handleClickLike = () => {
-    console.log("handleClickLike")
+  const handleClickLike = async () => {
+    const likedFormData = { ...submittedData };
+    likedFormData.data.liked = true;
+    const response = await saveFormSubmission(likedFormData);
+    
+    console.log(response)
   }
 
   return (
