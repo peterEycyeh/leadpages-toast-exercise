@@ -25,7 +25,7 @@ export default function BasicTable(props) {
           <TableRow>
             {
               columnTitles.map( (columnTitle) => (
-                <TableCell>{columnTitle}</TableCell>
+                <TableCell key={columnTitle}>{columnTitle}</TableCell>
               ))
             }
           </TableRow>
@@ -33,7 +33,7 @@ export default function BasicTable(props) {
         <TableBody>
           {formSubmissions.map((formSubmission) => (
             <TableRow
-              key={formSubmission.data.firstName}
+              key={formSubmission.data.firstName + formSubmission.data.lastName}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
