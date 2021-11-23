@@ -7,7 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import styled from '@emotion/styled';
 
 export default function Toast(props) {
-  const { data, open, onClickClose, onClickLike } = props;
+  const { data, isOpen, onClickClose, onClickLike } = props;
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -42,7 +42,7 @@ export default function Toast(props) {
   return (
     <Snackbar
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      open={open}
+      open={isOpen}
       autoHideDuration={6000}
       onClose={handleClose}
       message={renderMessage(data)}
@@ -53,7 +53,7 @@ export default function Toast(props) {
 
 Toast.propTypes = {
   data: PropTypes.object, 
-  open: PropTypes.bool, 
+  isOpen: PropTypes.bool, 
   onClickClose: PropTypes.func, 
   onClickLike: PropTypes.func
 }
