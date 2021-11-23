@@ -7,12 +7,27 @@ import Toast from './components/Toast';
 
 import {
   onMessage,
-  saveFormSubmission
+  saveFormSubmission,
+  fetchLikedFormSubmissions
 } from './service/mockServer';
 
 function App() {
   const [submittedData, setSubmittedData] = useState();
   const [isToastOpen, setIsToastOpen] = useState(false);
+  const [formSubmissions, setFormSubmissions] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetchLikedFormSubmissions();
+      if (response.status === 200) {
+        setFormSubmissions(response.formSubmissions);
+      } else {
+        fetchData();
+      }
+    }
+
+    fetchData();
+  }, [])
 
   const handleMessage = useCallback(async formData => {
     setSubmittedData(formData);
@@ -39,7 +54,7 @@ function App() {
     <>
       <Header />
       <Container>
-        <Content />
+        <Content data={formSubmissions}/>
       </Container>
       <Toast 
         data={submittedData?.data}
