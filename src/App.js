@@ -20,10 +20,8 @@ function App() {
     async function fetchData() {
       const response = await fetchLikedFormSubmissions();
       if (response.status === 200) {
-        console.log(response)
         setFormSubmissions(response.formSubmissions);
       } else {
-        console.log('error')
         fetchData();
       }
     }
@@ -48,21 +46,20 @@ function App() {
     const likedFormData = { ...submittedData };
     likedFormData.data.liked = true;
     const response = await saveFormSubmission(likedFormData);
-    
+
     if (response.status === 202) {
       setFormSubmissions([...formSubmissions, likedFormData]);
       setIsToastOpen(false);
     }
-    console.log(response)
   }
 
   return (
     <>
       <Header />
       <Container>
-        <Content formSubmissions={formSubmissions}/>
+        <Content formSubmissions={formSubmissions} />
       </Container>
-      <Toast 
+      <Toast
         data={submittedData?.data}
         isOpen={isToastOpen}
         onClickClose={handleClickCloseToast}

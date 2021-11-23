@@ -13,7 +13,7 @@ const columnTitles = [
   'Last Name',
   'Full Name',
   'Email'
-]
+];
 
 export default function BasicTable(props) {
   const { formSubmissions } = props;
@@ -24,7 +24,7 @@ export default function BasicTable(props) {
         <TableHead>
           <TableRow>
             {
-              columnTitles.map( (columnTitle) => (
+              columnTitles.map((columnTitle) => (
                 <TableCell key={columnTitle}>{columnTitle}</TableCell>
               ))
             }

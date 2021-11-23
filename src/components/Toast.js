@@ -52,9 +52,9 @@ export default function Toast(props) {
 }
 
 Toast.propTypes = {
-  data: PropTypes.object, 
-  isOpen: PropTypes.bool, 
-  onClickClose: PropTypes.func, 
+  data: PropTypes.object,
+  isOpen: PropTypes.bool,
+  onClickClose: PropTypes.func,
   onClickLike: PropTypes.func
 }
 
