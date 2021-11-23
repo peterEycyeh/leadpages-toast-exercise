@@ -20,8 +20,10 @@ function App() {
     async function fetchData() {
       const response = await fetchLikedFormSubmissions();
       if (response.status === 200) {
+        console.log(response)
         setFormSubmissions(response.formSubmissions);
       } else {
+        console.log('error')
         fetchData();
       }
     }
@@ -54,7 +56,7 @@ function App() {
     <>
       <Header />
       <Container>
-        <Content data={formSubmissions}/>
+        <Content formSubmissions={formSubmissions}/>
       </Container>
       <Toast 
         data={submittedData?.data}
