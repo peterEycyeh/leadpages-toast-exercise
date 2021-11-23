@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import Table from './components/Table';
+import BasicTable from './components/BasicTable';
 
 export default function Content(props) {
   const { formSubmissions } = props;
@@ -14,7 +15,11 @@ export default function Content(props) {
       {/* <Typography variant="body1" sx={{fontStyle: 'italic', marginTop: 1}}>
         TODO: List of liked submissions here (delete this line)
       </Typography> */}
-      <Table formSubmissions={formSubmissions} />
+      <BasicTable formSubmissions={formSubmissions} />
     </Box>
   );
+}
+
+Content.propTypes = {
+  formSubmissions: PropTypes.array,
 }

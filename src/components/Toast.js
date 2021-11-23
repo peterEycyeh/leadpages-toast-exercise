@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
@@ -48,6 +49,13 @@ export default function Toast(props) {
       action={renderAction}
     />
   );
+}
+
+Toast.propTypes = {
+  data: PropTypes.object, 
+  open: PropTypes.bool, 
+  onClickClose: PropTypes.func, 
+  onClickLike: PropTypes.func
 }
 
 const MessageWrapper = styled.div`
