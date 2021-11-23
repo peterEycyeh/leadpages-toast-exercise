@@ -29,14 +29,14 @@ function App() {
     fetchData();
   }, [])
 
+  useEffect(() => {
+    onMessage(handleMessage);
+  }, [handleMessage]);
+
   const handleMessage = useCallback(async formData => {
     setSubmittedData(formData);
     setIsToastOpen(true)
   }, []);
-
-  useEffect(() => {
-    onMessage(handleMessage);
-  }, [handleMessage]);
 
   const handleClickCloseToast = () => {
     setIsToastOpen(false);
