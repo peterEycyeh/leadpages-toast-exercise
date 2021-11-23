@@ -51,6 +51,7 @@ function App() {
     
     if (response.status === 202) {
       setFormSubmissions([...formSubmissions, likedFormData]);
+      setIsToastOpen(false);
     }
     console.log(response)
   }
@@ -63,7 +64,7 @@ function App() {
       </Container>
       <Toast 
         data={submittedData?.data}
-        open={isToastOpen}
+        isOpen={isToastOpen}
         onClickClose={handleClickCloseToast}
         onClickLike={handleClickLike}
       />
